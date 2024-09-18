@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/JNSalvatierra/challenge-manifests.git'
     targetRevision: main
-    path: db
+    path: database
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
