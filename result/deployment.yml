@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-app
+  labels:
+    app: result-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result-app
+  template:
+    metadata:
+      labels:
+        app: result-app
+    spec:
+      containers:
+      - name: result-app-container
+        image: jnsalvatierra/challenge-infra:result-20
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "110Mi"
+          limits:
+            memory: "200Mi"

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-app
+  labels:
+    app: worker-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker-app
+  template:
+    metadata:
+      labels:
+        app: worker-app
+    spec:
+      containers:
+      - name: worker-app-container
+        image: jnsalvatierra/challenge-infra:worker-20
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "110Mi"
+          limits:
+            memory: "200Mi"

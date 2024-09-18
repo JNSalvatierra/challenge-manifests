@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote-app
+  labels:
+    app: vote-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vote-app
+  template:
+    metadata:
+      labels:
+        app: vote-app
+    spec:
+      containers:
+      - name: vote-app-container
+        image: jnsalvatierra/challenge-infra:vote-20
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "110Mi"
+          limits:
+            memory: "200Mi"
